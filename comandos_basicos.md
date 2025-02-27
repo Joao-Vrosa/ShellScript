@@ -1,5 +1,6 @@
->> COMANDOS BASICOS DO LINUX/SHELL <<
+## COMANDOS BASICOS -- LINUX/SHELL
 
+```bash
 cd > entrar e sair de diretórios
 cd - > volta pro diretório anterior
 ps axu > mostra os processos que estão executando
@@ -10,11 +11,13 @@ rmdir > remove diretório vazio (se tiver conteúdo dentro do diretório, não f
 rm -r > remove arquivos e diretórios (tendo conteúdo ou não)
 sleep > conta o tempo
 comando --help > retorna o manual de utilização do comando
+```
 
 ====================================================================================
 
->> COMANDOS BASICOS DO LINUX/SHELL - Manipulação de Arquivos Texto <<
+### COMANDOS BASICOS DO LINUX/SHELL - Manipulação de Arquivos Texto
 
+```bash
 cat > retorna o conteúdo de um arquivo
 cat -b > retorna o conteúdo do arquivo, ignorando as linhas em branco (as linhas retornadas são numeradas)
 cat -n > retorna o conteúdo do arquivo, mostrando todas as linhas (inclusive as em branco)
@@ -51,31 +54,37 @@ ls alunos.txt && echo Linux > o "&&", faz com que o segundo comando execute, som
 ls alunos.txt || echo Linux > o "", faz com que o que o segundo comando seja executado, somente se o primeiro der erro
 cd .. ; ls -l > volta um diretório e executa o comando "ls -l"
 (cd .. ; ls -l)  > volta um diretório e executa o comando "ls -l" (mas não sai do diretório atual)
+```
 
 ====================================================================================
 
->> REDIRECIONAMENTO DE SAIDA <<
+### REDIRECIONAMENTO DE SAIDA
 
+```bash
 cat alunos.txt > alunos-temp.txt > o sinal ">" joga a saída do comando para dentro do arquivo alunos-tem.txt
 date >> alunos-temp.txt > o sinal ">>" ira concatenar a informação do comando "date" no final do arquivo
 ls -l alunos.txt3 2> log.out > o sinal "2>" redireciona mensagens de erro somente
-
+```
 ====================================================================================
 
->> VARIAVEIS NO SHELL <<
+### VARIAVEIS NO SHELL
 
+```bash
 $VARIAVEL > referencia variáveis ($ - utilizar cifrão para referenciar)
 env OU set > verificar variáveis de SISTEMA/AMBIENTE
+```
 
 ====================================================================================
 
->> COMANDO VI <<
+### COMANDO VI
 
+```bash
 vi ARQUIVO.txt > Abre arquivo
 vi NOVO_ARQUIVO.txt > Cria novos arquivos
+```
 
->> COMANDO VI - Explorar arquivo <<
-
+### COMANDO VI - Explorar arquivo
+```bash
 [I ou INSERT - habilita a edição/inserção do arquivo]
 [ESC - sair do modo de edição/inserção]
 [: - habilita a utilização de comandos]
@@ -91,11 +100,11 @@ vi NOVO_ARQUIVO.txt > Cria novos arquivos
 [d4d - recorta/apaga as 4 (ou conforme parâmetro (d20d - paga 20 linhas)) próximas linhas, a partir da atual]
 [quando a linha é recortada com o "dd", podemos colar a linha cortada em outra linha utilizando a letra "p"]
 [yy - copia a linha desejada]
-
+```
 ====================================================================================
 
->> COMANDO VI - Outros <<
-
+### COMANDO VI - Outros
+```bash
 # Inserindo Texto
 i: Inserir antes do cursor
 I: Inserir no início da linha
@@ -191,40 +200,43 @@ N: Ocorrência anterior
 -> Flags:
 c: Confirmar substituições
 g: Substituir todas as ocorrências
-
+```
 ====================================================================================
 
->> Expressões Regulares <<
+### Expressões Regulares
 
+```bash
 egrep "[Ll]inux" ARQUIVO.txt -> Ira buscar no conteúdo do arquivo, palavras "Linux" ou "linux"
 egrep "^Linux" texto.txt -> Ira buscar no conteúdo do arquivo, todas as linhas que a primeria palavra seja "Linux"
 egrep "^[Ll]inux" texto.txt -> Ira buscar no conteúdo do arquivo, todas as linhas que a primeria palavra seja "Linux" ou "linux"
+```
 
 ====================================================================================
 
->>> INSTRUÇÕES CONDICIONAIS <<<
+### INSTRUÇÕES CONDICIONAIS
 
-INSTRUÇÃO - IF - SINTAXES >
+#### INSTRUÇÃO - IF - SINTAXES >
 ---------------------------
 
+```bash
 if <COMANDO-CONDIÇÃO>
 then
 	comando1
 	comando2
 	comando3
 fi
+```
 
----------------------------
-
+```bash
 if <COMANDO-CONDIÇÃO>
 then
 	comando1
 else
 	comando2
 fi
+```
 
----------------------------
-
+```bash
 if <COMANDO-CONDIÇÃO>
 then
 	comando1
@@ -234,11 +246,12 @@ then
 else
 	comando3
 fi
-
+```
 ---------------------------
 
-COMANDO test > Utilizado para criar uma condição.
+### COMANDO test > Utilizado para criar uma condição.
 
+```bash
 test <EXPRESSÃO>
 
 Testando Valores Numéricos >
@@ -277,7 +290,7 @@ OPÇÃO | DESCRIÇÃO
 test 50 -gt 100			> 50 é maior q 100?
 test "$VAR1" -eq 12		> O valor de VAR1 é igual a 12? 
 test -f /tmp/test		> O arquivo teste existe?
-test "$VAR1" = "$VAR2"	> A string de VAR1 é igual a string da VAR2?
+test "$VAR1" = "$VAR2"		> A string de VAR1 é igual a string da VAR2?
 
 Podemos utilizar desta forma também, sem o comando {test} antes da condição >
 
@@ -289,10 +302,12 @@ Podemos utilizar desta forma também, sem o comando {test} antes da condição >
 
 Retorna 0 se for VERDADE
 Retorna 1 se for FALSO
+```
 
->>> Exemplo Prático:
-------------------------------------------------------
 
+#### Exemplo Prático:
+
+```bash
 VAR1=12
 ## O valor de VAR1 é maior que 10?
 if test "$VAR1" -gt 10  # Podemos usar também > if ["$VAR1" -gt 10]
@@ -326,13 +341,13 @@ if [ "$VAR1" -gt 10 -o "$VAR1" -lt 20 ]  # OR (-o)
 then
 	echo SUCESSO
 fi
-
+```
 
 
 ====================================================================================
 
 INSTRUÇÃO - CASE - SINTAXES >
----------------------------
+```bash
 
 case $VALOR in
 	padrão1)
@@ -345,9 +360,9 @@ case $VALOR in
 		comandos
 		;;
 esac
+```
 
-------------------------------------------------------
-
+```bash
 case $OPCAO in
 	1)
 		echo "Opção Incluir"
@@ -359,9 +374,9 @@ case $OPCAO in
 		echo "Opção Inexistente"
 		;;
 esac
+```
 
-------------------------------------------------------
-
+```bash
 # Podemos utilizar expressões regulares
 case $CARACTERER in
 	[0-9])
@@ -374,49 +389,49 @@ case $CARACTERER in
 		echo "O caractere informado é uma letra minúscula"
 		;;
 esac
+```
 
-------------------------------------------------------
 
 INSTRUÇÕES DE LOOP - FOR - SINTAXES >
------------------------------------
 
+```bash
 for variavel in valor1 valor2 ... valorN
 do
 	comando1
 	comando2
 	...
 done
+```
 
-------------------------------------------------------
-
+```bash
 for numero in 1 2 3 4 5
 do
 	echo "o número atual é $numero"
 done
+```
 
-------------------------------------------------------
-
+```bash
 for arquivo in alunos*
 do
 	echo "O arquivo atual é $arquivo"
 done
+```
 
-------------------------------------------------------
-
+```bash
 for sequencia in $(seq 5 10)  # seq --> Gera uma sequencia de valores
 do
 	echo "O número é $sequencia"
 done
+```
 
-------------------------------------------------------
-
+```bash
 for sequencia in {5..10}  # Gera uma sequencia de valores
 do
 	echo "O número é $sequencia"
 done
+```
 
-------------------------------------------------------
-
+```bash
 # Gerando valores de 1 até 50, pulando de 5 em 5
 # Com a utilização do comando (seq), os parametros ficam desta forma:
 # {INICIO, INTERVALO/PULO, FIM}
@@ -424,9 +439,9 @@ for sequencia in $(seq 1 5 50)  # seq --> Gera uma sequencia de valores
 do
 	echo "O número é $sequencia"
 done
+```
 
-------------------------------------------------------
-
+```bash
 # Gerando valores de 1 até 50, pulando de 5 em 5
 # Com a utilização das chaves ({}), os parametros ficam desta forma:
 # {INICIO, FIM, INTERVALO/PULO}
@@ -434,46 +449,45 @@ for sequencia in  {1..50..5}  # seq --> Gera uma sequencia de valores
 do
 	echo "O número é $sequencia"
 done
+```
 
-------------------------------------------------------
-
+```bash
 for i in $(cat arquivo.txt)
 do
 	echo "O valor atual é $i"
 done
+```
 
-------------------------------------------------------
-
+```bash
 # A variavel 'i' vai iniciar com o valor 5, enquanto a variavel 'i' for
 # menor ou igual a 20, vamos acressentar a variavel 'i' o valor de +1
 for (( i=5 ; <=20 ; i++ ))
 do
 	echo "O número é $i"
 done
+```
 
-------------------------------------------------------
+### INSTRUÇÕES DE LOOP - WHILE - SINTAXES >
 
-INSTRUÇÕES DE LOOP - WHILE - SINTAXES >
--------------------------------------
-
+```bash
 while <comando-conddição>
 do
 	comando1
 	comando2
 	...
 done
+```
 
-------------------------------------------------------
-
+```bash
 x=1
 while [ $x -le 20 ]  # -le --> Menor ou Igual
 do
 	echo "O valor atual é $x"
 	x=$(expr $x + 1)
 done
+```
 
-------------------------------------------------------
-
+```bash
 # Verifica quantos processos estão em execução
 # Enquanto isso for menor que 300, entra no loop
 while [ $(ps axu | wc -l) -lt 300 ]  # -lt --> Menor que
@@ -481,49 +495,47 @@ do
 	echo "Tudo OK"
 	sleep 30
 done
+```
 
-------------------------------------------------------
-
+```bash
 # Enquanto o arquivo existir o loop continua
 while ls /var/look/processo.lock > /dev/null
 do
 	echo "Processo em Execução"
 	sleep 30
 done
+```
 
-------------------------------------------------------
+### INSTRUÇÕES DE LOOP - UNTIL - SINTAXES >
 
-INSTRUÇÕES DE LOOP - UNTIL - SINTAXES >
--------------------------------------
-UNTIL --> Até que algo seja verdadeiro
--------------------------------------
+#### UNTIL --> Até que algo seja verdadeiro
 
+```bash
 until <comando-condição>
 do
 	comando1
 	comando2
 	...
 done
+```
 
-------------------------------------------------------
-
+```bash
 x=1
 until [ $x -eq 20 ]  # Até que o valor de 'x' seja IGUAL a 20
 do
 	echo "O valor atual é $x"
 	x=$(expr $x + 1)
 done
+```
 
-------------------------------------------------------
 
-BREAK & CONTINUE - INSTRUÇÕES DE LOOP >
--------------------------------------
+### BREAK & CONTINUE - INSTRUÇÕES DE LOOP >
 
-> BREAK é utilizado para sair do loop.
+#### BREAK é utilizado para sair do loop.
 
-BREAK - SINTAXES >
-----------------
+#### BREAK - SINTAXES >
 
+```bash
 while ls /var/lock/processos.lock > /dev/null
 do
 	if [ $(date +%H) -gt 18 ]; then
@@ -533,14 +545,14 @@ do
 	echo "Processo em Execução!"
 	sleep 30
 done
+```
 
-------------------------------------------------------
 
-> CONTINUE é utilizado para voltar ao inicio do loop.
+### CONTINUE é utilizado para voltar ao inicio do loop.
 
-CONTINUE - SINTAXES >
--------------------
+#### CONTINUE - SINTAXES >
 
+```bash
 while ls /var/lock/processo.lock > /dev/null
 do
 	if [ $(date +%H) -eq 18 ]; then
@@ -551,24 +563,25 @@ do
 	echo "Processo em Exeução!"
 	sleep 30
 done
+```
 
-------------------------------------------------------
 
---> FUNÇÕES <--
+#### FUNÇÕES <--
 
--> Evita a repetição excessiva de código
--> Reduz o tamanho final do Script
--> Facilita a Manutenção
+###### > Evita a repetição excessiva de código
+###### > Reduz o tamanho final do Script
+###### > Facilita a Manutenção
 
--> Podem utilizar parâmetros
--> Podem utilizar variáveis globais ou locais
--> Devem ser definidas antes de serem chamadas
--> Podem ser utilizados códigos de retorno
-----------------------------------------------
+###### > Podem utilizar parâmetros
+###### > Podem utilizar variáveis globais ou locais
+###### > Devem ser definidas antes de serem chamadas
+###### > Podem ser utilizados códigos de retorno
 
---> Functions - SINTAXES & Definição >
-------------------------------------
 
+
+#### Functions - SINTAXES & Definição >
+
+```bash
 function nome-funcao () {
 	comandos
 }
@@ -576,36 +589,37 @@ function nome-funcao () {
 nome-funcao () {
 	comandos
 }
+```
 
--> Chamando Função >
-----
+#### Chamando Função >
 
+```bash
 nome-funcao
 nome-funcao par1 par2
 VAR1=$(nome-funcao)
+```
 
--> Function - Variáveis >
-----
+#### Function - Variáveis >
 
-> Global -- Visível por todo o código (padrão)
-> Local -- Visível apenas na função
+###### > Global -- Visível por todo o código (padrão)
+###### > Local -- Visível apenas na função
 
-local VAR1="Shell Script"
+###### > local VAR1="Shell Script"
 
--> Functions - Return Code >
-----
+#### Functions - Return Code >
 
-> Mesmo princípio do Exit Code
-> Definida pela instrução "return"
-> Acessada por $?
+###### > Mesmo princípio do Exit Code
+###### > Definida pela instrução "return"
+###### > Acessada por $?
 
-------------------------------------------------------
 
-> DEBUG <
+#### DEBUG >
 
+```bash
 # Vai debugar o código, sem realizar a execução do mesmo
 bash -n SCRIPT.sh
 
 # Mostra a execução de cada comando
 bash -xv SCRIPT.sh
+```
 
