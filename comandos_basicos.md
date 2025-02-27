@@ -257,8 +257,8 @@ test <EXPRESSÃO>
 Testando Valores Numéricos >
 
 OPÇÃO | DESCRIÇÃO
--eq --> IGUAL
--ne --> DIFERENTE
+-eq 	--> IGUAL
+-ne 	--> DIFERENTE
 -gt	--> MAIOR QUE
 -ge	--> MAIOR OU IGUAL QUE
 -lt	--> MENOR QUE
